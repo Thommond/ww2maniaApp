@@ -1,2 +1,2 @@
 
-web: gunicorn hello:app
+web: gunicorn "ww2maniaApp:create_app()"
