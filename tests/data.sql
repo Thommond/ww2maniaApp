@@ -16,7 +16,8 @@ INSERT INTO stats (name, points)-- Has stat values as well
     ('test Strength', 10),
     ('test Luck', 5 ),
     ('test Intelligence', 5),
-    (' test Charisma', 5)
+    ('test Charisma', 5),
+    ('test health', 100)
 
   )
 

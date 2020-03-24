@@ -1,3 +1,4 @@
+import pytest
 from ww2maniaApp import create_app
 
 
@@ -7,5 +8,5 @@ def test_config():
 
 
 def test_index(client):
-    response = client.get('/')
+    response = client.get('/Demo')
     assert response.data == b'Flask Heroku Demo'
