@@ -1,4 +1,4 @@
-from ww2mania import create_app
+from ww2maniaApp import create_app
 
 
 def test_config():
