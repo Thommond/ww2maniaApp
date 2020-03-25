@@ -35,5 +35,5 @@ def create_app(test_config=None):
     # from . import stats
     # app.register_blueprint(stats.bp)
 
-    app.add_url_rule('/', endpoint='menu')
+    app.add_url_rule('/', endpoint='/game/menu')
     return app
