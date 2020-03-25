@@ -1,0 +1,17 @@
+<!--This is for each user to either log out, log in or register
+  It will link of sorts the content-->
+<!doctype html>
+<title>{% block title %}{% endblock %} - ww2mania</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>ww2Mania</h1>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

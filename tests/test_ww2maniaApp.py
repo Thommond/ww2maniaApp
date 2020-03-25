@@ -1,5 +1,5 @@
-import pytest
 from ww2maniaApp import create_app
+import pytest
 
 
 def test_config():

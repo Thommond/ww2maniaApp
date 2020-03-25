@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- Is the header -->
+{% block header %}
+
+  <h1>{% block title %}Game Menu{% endblock %}</h1>
+
+
+{% endblock %}<!--End of header-->
+
+{% block content %}
+
+  <article class="post" >
+  
+      <h2>This is ww2mania text adventure game</h2>
+
+      <hr>
+
+      <p>Please choose a menu option and proceed</p>
+
+      <a href="{{ url_for('game.roomone') }}">Start game</a>
+
+      <a href="{{ url_for('game.howtoplay') }}">How to play</a>
+    </article>
+
+{% endblock %}
