@@ -23,11 +23,10 @@ def create_app(test_config=None):
 
     from . import game
     app.register_blueprint(game.bp)
-
-    # TO DO THURS (Make DB and cookies to save Data)
-
     # from . import auth
     # app.register_blueprint(auth.bp)
+
+    # TO DO THURS (Make DB and cookies to save Data)
     #
     # from . import items
     # app.register_blueprint(items.bp)
@@ -35,5 +34,5 @@ def create_app(test_config=None):
     # from . import stats
     # app.register_blueprint(stats.bp)
 
-    app.add_url_rule('/', endpoint='/game/menu')
+    app.add_url_rule('/', endpoint='menu')
     return app

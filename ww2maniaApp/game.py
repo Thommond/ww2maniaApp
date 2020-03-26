@@ -4,28 +4,34 @@ from flask import (
 )
 
 
-bp = Blueprint('game', __name__, url_prefix='/game')
+class Room(object):
+    """docstring for Rooms ."""
+
+    def __init__(self, name):
+        self.name = name
 
 
-@bp.route('/menu', methods=('GET', 'POST'))
+bp = Blueprint('game', __name__)
+
+
+@bp.route('/')
 def menu():
 
-    return render_template('/game/menu.html')
+    return render_template('base.html')
 
 
 @bp.route('/howtoplay', methods=('GET', 'POST'))
 def howtoplay():
 
-    return render_template('/game/howToPlay.html')
+    return render_template('game/howToPlay.html')
 
 
-@bp.route('/room1', methods=('GET', 'POST'))
-def roomone():
+@bp.route('/welcome', methods=('GET', 'POST'))
+def welcome():
 
-    return render_template('/game/room1.html')
+    return render_template('game/room.html')
 
 
-@bp.route('/room2', methods=('GET', 'POST'))
-def roomtwo():
-
-    return render_template('/game/room2.html')
+@bp.route('/dead', methods=('GET', 'POST'))
+def dead():
+    return render_template('game/dead')
