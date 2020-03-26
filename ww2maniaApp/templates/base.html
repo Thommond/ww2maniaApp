@@ -8,13 +8,13 @@
   </head>
       <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <body>
-      <nav>
-        <a href="{{url_for('game.welcome')}}" class='start-game'>Play WW2mania</a>
-
-      </nav>
       <main>
         <section class='content'>
-          {% block content %}{% endblock %}
+          {% block content %}
+          <h1>Welcome this is WW2 mania</h1>
+          <a href="{{ url_for('game.welcome') }}" class='start-game'>Start Game</a>
+          <a href="{{ url_for('game.howtoplay') }}" class='description'>How To Play</a>
+          {% endblock %}
         </section>
       </main>
     </body>
