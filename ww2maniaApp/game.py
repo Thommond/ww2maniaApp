@@ -14,8 +14,7 @@ import ww2maniaApp.room  # Imports each rooms message/ descripton so then the
 bp = Blueprint('game', __name__, url_prefix='/game')
 
 
-@bp.route('/')  # The menu function will be the root route of
-# the project
+@bp.route('/')  # The menu function will be the root route of the project
 def menu():
     # Choose info about game or to play game
     return render_template('base.html')

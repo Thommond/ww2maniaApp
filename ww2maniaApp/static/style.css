@@ -1,0 +1,16 @@
+html{ box-sizing: border-box;}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body{font-family: monospace;; display: flex; flex-direction: column; justify-content: center; align-items:center; align-self: center;}
+
+h1, h2 { color:green;}
+
+p { color:grey; background: darkblue;}
+
+section{ color: black; background:tan;}
+
+.start-game, .info{color:red; background: yellow;}
+
+.commands {border-radius: 25%;border: 1px solid red;}
