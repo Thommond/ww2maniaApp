@@ -12,7 +12,12 @@
 
       </header>
 
-      <p>{{ message }}</p><!-- Describes to the player what to do next-->
+      <p class=desc>{{ message }}</p><!-- Describes to the player what to do next-->
+      <p class=item>{{ items }}</p>
+
+      <div class="stats">
+        <p>{{ stats }}</p>
+      </div>
 
       <form method="post" class=commands>
         <label for="room1Reply">Answer the question soldier!</label><!--TO DO -->
