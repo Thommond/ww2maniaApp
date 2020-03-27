@@ -1,4 +1,7 @@
 
+# Pytest is not imported so these test will not be run
+# do to the auth is not created
+
 
 def log_check():
     assert b'Log in' in response.data

@@ -12,11 +12,11 @@ hurt others but remember it is for god and country! Understand?
 A. Yes B.You go to jail (restart the game)
 """)
 
-office = Rooms('Sgts office', """Welcome to the sgt's office soldier what department would you like to
+office = Rooms('Sgts office', """Welcome to the sgts office soldier what department would you like to
 join? A. Army B.Navy C.Airforce""")
 
 jail = Rooms('Jail dude', """Well you are kind of in Jail now. There is no point to continue.
-well I mean if you like jail... Sure why not. A. Sleep in jail B.Read a book in Jail C. Go use the rest
+well I mean if you like jail... Sure why not. This is your life now boy, this is your home. A. Sleep in jail B.Read a book in Jail C. Go use the rest
 room in jail (in front of your jail mate.)""")
 
 dead = Rooms('You have died in battle',

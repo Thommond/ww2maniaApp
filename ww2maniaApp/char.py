@@ -3,9 +3,6 @@ class Stat(object):
         self.name = name
         self.amount = amount
 
-    def name(self, player_name):
-        self.player_name = player_name
-
 
         # make a dictionary?
 health = Stat('health', 100)

@@ -1,11 +1,5 @@
 {% extends 'base.html' %}
-<!-- Is the header -->
-{% block header %}
 
-  <h1>{% block title %}{{ title }}{% endblock %}</h1>
-
-
-{% endblock %}<!--End of header-->
 
 {% block content %}
 
@@ -13,15 +7,15 @@
       <header>
         <a class='action' href="{{ url_for('game.menu')}}">Exit Game</a>
         <div>
-          <h1>{{ title }}</h1>
+          <h1>{{ title }}</h1><!-- This shows so the player knows location-->
         </div>
 
       </header>
 
-      <p>{{ message }}</p>
+      <p>{{ message }}</p><!-- Describes to the player what to do next-->
 
       <form method="post" class=commands>
-        <label for="room1Reply">Anwser the question soldier!</label><!--TO DO -->
+        <label for="room1Reply">Answer the question soldier!</label><!--TO DO -->
         <input name="answer" id="room" required><!--make classes for the test room to
           return the value and move to the next room so game can play-->
         <input type="submit" value="Anwser">

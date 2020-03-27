@@ -1,7 +1,8 @@
-import postgres
-import pytest
+# import postgres
+# import pytest
+# Not imported do to the fact the database does not exist yet
 
-
+#
 # def test_get_close_db(app):
 #     with app.app_context():
 #         db = get_db()

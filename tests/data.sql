@@ -1,3 +1,6 @@
+--Possible data structure of the database in postgres
+--Cookies may also take part
+
 INSERT INTO user(username, password)--Insert test user into database
   VALUES(
     ('test', 'password'),
@@ -21,7 +24,7 @@ INSERT INTO stats (name, points)-- Has stat values as well
 
   )
 
-INSERT INTO items (name, amount)
+INSERT INTO items (name, amount)-- Info on player items they have collected
   VALUES(
     ('test Rifle', 1),
     ('test Gernade', 3),

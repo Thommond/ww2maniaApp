@@ -19,3 +19,7 @@ def app():
 @pytest.fixture
 def client(app):
     return app.test_client()
+
+
+def runner(app):
+    return app.test_client_runner()
