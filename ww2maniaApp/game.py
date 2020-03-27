@@ -55,10 +55,10 @@ def office_room():
         answer = request.form['answer']
 
         if answer == "A":
-            return redirect(url_for('game.army'))
+            return redirect(url_for('game.army_room'))
         elif answer == "B":
-            return redirect(url_for('game.navy'))
-        elif anwser == "C":
+            return redirect(url_for('game.navy_room'))
+        elif answer == "C":
             return redirect(url_for('game.airforce'))
         else:
             return redirect(url_for('game.office_room'))
