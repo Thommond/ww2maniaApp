@@ -29,11 +29,29 @@ A. Go to Airforce training B.Nevermind go back to deparment choosing C. Do we ge
 """)
 
 navy_deploy = Rooms(
-'Navy Deploy', """"""
+'Navy Deploy', """Well It is time for war non the less.
+Here at the navy any man is a trained man. You have been accepted and
+now you deploy date is set congrats. A. To end """
 )
 
 airforce_base = Rooms(
-'Airforce Base', """"""
+'Airforce Base', """Airforce is happy to have you welcome aboard. The only thing is
+you will have to have 12 months of pilot training so Congrats. Good Luck"""
+)
+
+push_up = Rooms(
+'Push Ups', """Push ups are a essential portion of army life. Do a couple and you graduate basic.
+Congrats you have finished army training. """
+)
+
+army_train = Rooms(
+'Army Training', """We are on our way to army basic training. So now it is time to find your quarters
+for the rest of these long weeks. You will probably quit anyway. (You end up quiting and are a failer)
+Exit game."""
+)
+
+end = Rooms(
+'Ending', """Congrats you have finished the game! Press end game. """
 )
 
 army = Rooms('Army Recruitment', """Wooo aaaah, welcome to the army maggot.
@@ -45,7 +63,7 @@ navy = Rooms('Navy Recruitment',
              A. Go to base to be deployed B. Nevermind go back to deparment choices  """)
 
 navy_room = Rooms(
-'Navy Room', """"""
+'Navy Room', """Okay"""
 )
 
 jail_read = Rooms(

@@ -155,7 +155,7 @@ def airforce_room():
 
         if answer == "A":
 
-            return redirect(url_for('game.airforce_base'))\
+            return redirect(url_for('game.airforce_base'))
 
         elif answer == "B":
 
@@ -175,9 +175,9 @@ def army_room():
         answer = request.form['answer']
 
         if answer == "A":
-            pass  # return redirect(url_for('game.push_ups'))
+            return redirect(url_for('game.push_ups'))
         elif answer == "B":
-            pass  # return redirect(url_for('game.army_train'))
+            return redirect(url_for('game.army_train'))
         elif answer == "C":
             return redirect(url_for('game.office_room'))
         else:
@@ -193,10 +193,61 @@ def navy_room():
         answer = request.form['answer']
 
         if answer == "A":
-            pass  # return redirect(url_for('game.navy_deploy'))
+            return redirect(url_for('game.navy_deploy'))
         elif answer == "B":
             return redirect(url_for('game.office_room'))
         else:
             return redirect(url_for('game.navy_room'))
 
     return render_template('game/room.html', title=ww2maniaApp.room.navy.name, message=ww2maniaApp.room.navy.message)
+
+
+@bp.route('/navyDeploy', methods=('GET', 'POST'))
+def navy_deploy():
+
+    if request.method == 'POST':
+        answer = request.form['answer']
+
+        if answer == 'A':
+            return redirect(url_for('game.end'))
+
+        elif answer == 'B':
+            return redirect(url_for('game.jail'))
+
+        else:
+            return redirect(url_for('game.navy_deploy'))
+
+    return render_template('game/room.html', title=ww2maniaApp.room.navy_deploy.name, message=ww2maniaApp.room.navy_deploy.message)
+
+@bp.route('/pushUps', methods=('GET', 'POST'))
+def push_up():
+
+    if request.method == 'POST':
+        answer = request.form['answer']
+
+        if answer == 'A':
+            return redirect(url_for('game.end'))
+        else:
+            return redirect(url_for('game.push_up'))
+
+    return render_template('game/room.html', title=ww2maniaApp.room.push_up.name, message=ww2maniaApp.room.push_up.message)
+
+@bp.route('/armyTrain', methods=('GET', 'POST'))
+def army_train():
+
+    if request.method == 'POST':
+        answer = request.form['answer']
+
+        if answer == 'A':
+            return redirect(url_for('game.end'))
+        elif answer == 'B':
+            return redirect(url_for('game.jail'))
+        else:
+            return redirect(url_for('game.army_train'))
+
+    return render_template('game/room.html', title=ww2maniaApp.room.army_train.name, message=ww2maniaApp.room.army_train.message)
+
+@bp.route('/end', methods=('GET', 'POST'))
+def end():
+
+    return render_template('game/room.html', title=ww2maniaApp.room.end.name, message=ww2maniaApp.room.end.message)
