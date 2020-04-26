@@ -10,7 +10,7 @@ class Rooms(object):  # a parent of all rooms
 welcome = Rooms('Welcome', """You are about to be deployed what you better say good bye to
 your love ones and get ready to go to war. You are going to have to make hard decistions and
 hurt others but remember it is for god and country! Understand?
-A. Yes B.You go to jail (restart the game)
+A. Yes B.You go to jail
 """)
 
 office = Rooms('Sgts office', """Welcome to the sgts office soldier what department would you like to
@@ -28,6 +28,14 @@ You will be starting trainging on piloting soon. We look forward to see you soon
 A. Go to Airforce training B.Nevermind go back to deparment choosing C. Do we get coffee?
 """)
 
+navy_deploy = Rooms(
+'Navy Deploy', """"""
+)
+
+airforce_base = Rooms(
+'Airforce Base', """"""
+)
+
 army = Rooms('Army Recruitment', """Wooo aaaah, welcome to the army maggot.
 Basic training will start soon but give me 50 push ups first.
 A. Get on the ground and complete 50 push ups B.Say, No I am not trained yet C. Nevermind go back to department choices""")
@@ -35,6 +43,10 @@ A. Get on the ground and complete 50 push ups B.Say, No I am not trained yet C. 
 navy = Rooms('Navy Recruitment',
              """Howdy, how you doing? So you picked the navy what a fine choice. So we dont really have time to train you here is you uniform see you at base.
              A. Go to base to be deployed B. Nevermind go back to deparment choices  """)
+
+navy_room = Rooms(
+'Navy Room', """"""
+)
 
 jail_read = Rooms(
     'Jail Reading', """You read 10 pages of the Dictionary it was pleasent.

@@ -1,25 +1,27 @@
 import functools
-from flask import (  # Tools for later
+from flask import (
     Blueprint, Flask, g, redirect, render_template, request, session, url_for
 )
-import ww2maniaApp.items  # gives info on the items the player uses like a gas_mask
+import ww2maniaApp.items
 
-import ww2maniaApp.char  # gives more info on char stats/ health / name
+import ww2maniaApp.char
 
-import ww2maniaApp.room  # Imports each rooms message/ descripton so then the
+import ww2maniaApp.room
+
 # info can be routed to the proper template page
 
 # This is a blueprint of the game function so all template that
 # relate to the game are routed here / makes code more DRY
+
 bp = Blueprint('game', __name__, url_prefix='/game')
 
 
-@bp.route('/')  # The menu function will be the root route of the project
+@bp.route('/')
 def menu():
     # Choose info about game or to play game
     return render_template('base.html')
 
-# The how to play function is to inform players
+
 @bp.route('/howtoplay', methods=('GET', 'POST'))
 def howtoplay():
     # Learns to play game and goes back to menu
@@ -59,7 +61,7 @@ def office_room():
         elif answer == "B":
             return redirect(url_for('game.navy_room'))
         elif answer == "C":
-            return redirect(url_for('game.airforce'))
+            return redirect(url_for('game.airforce_room'))
         else:
             return redirect(url_for('game.office_room'))
 
@@ -152,11 +154,15 @@ def airforce_room():
         answer = request.form['answer']
 
         if answer == "A":
-            pass  # return redirect(url_for('game.airforce_base'))
+
+            return redirect(url_for('game.airforce_base'))\
+
         elif answer == "B":
+
             return redirect(url_for('game.office_room'))
 
         else:
+
             return redirect(url_for('game.airforce_room'))
 
     return render_template('game/room.html', title=ww2maniaApp.room.airforce.name, message=ww2maniaApp.room.airforce.message)

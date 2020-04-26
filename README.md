@@ -1,6 +1,7 @@
-# Python Skeleton
+# Ww2 Mania Application
 
-This is a basic project skeleton to help kick-start a variety of Python projects. It's inspired by [The Hitchhiker's Guide To Python](https://docs.python-guide.org/writing/structure/) and [Real Python's application layout reference](https://realpython.com/python-application-layouts/).
+This is a recreation of a Text adventure game which takes you
+through a brief military adventure. 
 
 
 ## Usage

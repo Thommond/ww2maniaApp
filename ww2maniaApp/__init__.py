@@ -23,11 +23,7 @@ def create_app(test_config=None):
 
     from . import game
     app.register_blueprint(game.bp)
-    # from . import auth
-    # app.register_blueprint(auth.bp)
 
-    # TO DO THURS (Make DB and cookies to save Data)
-    #
     # from . import items
     # app.register_blueprint(items.bp)
     #

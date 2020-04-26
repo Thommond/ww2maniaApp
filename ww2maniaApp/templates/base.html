@@ -4,19 +4,40 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %} - ww2mania</title>
+
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='style.css' ) }}">
+
+    <title>{% block title %}{% endblock %}</title>
+
   </head>
-      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <body>
+
       <main>
+
+
         <section class='content'>
+
           {% block content %}
-          <h1>This is ww2mania text adventure game</h1>
+
+          <h1>Ww2 Mania App</h1>
+
           <p>Please choose a menu option and proceed</p>
-          <a href="{{ url_for('game.welcome') }}" class='start-game'>Start Game</a>
-          <a href="{{ url_for('game.howtoplay') }}" class='info'>How To Play</a>
+
+          <a href="{{ url_for('game.welcome') }}" id='start-game'>Start Game</a>
+
+          <a href="{{ url_for('game.howtoplay') }}" id='info'>How To Play</a>
+
+
+
           {% endblock %}
+
         </section>
+
+
+
       </main>
+
     </body>
+
 </html>

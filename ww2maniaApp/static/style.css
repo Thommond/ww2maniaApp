@@ -1,16 +1,74 @@
-html{ box-sizing: border-box;}
+html{
+   box-sizing: border-box;
+ }
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
-body{font-family: monospace;; display: flex; flex-direction: column; justify-content: center; align-items:center; align-self: center;}
+body {
+  background: darkgreen;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  margin: auto;
+}
 
-h1, h2 { color:green;}
+h1, h2 {
 
-p { color:grey; background: darkblue;}
+   font-size: 20pt;
+   color: white;
 
-section{ color: black; background:tan;}
+}
 
-.start-game, .info{color:red; background: yellow;}
+p {
+   color: white;
+   max-width: 530px;
+   margin: 20px;
+   border-top: 2px solid white;
+   border-bottom: 2px solid white;
+   padding: 5px;
+}
 
-.commands {border-radius: 25%;border: 1px solid red;}
+section {
+
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+   align-self: center;
+   color: white;
+   background:black;
+   padding: 10px;
+
+}
+
+
+.commands {
+  border: 2px dashed red;
+  padding: 30px;
+  background-color: grey;
+}
+
+input {
+  font-size: 10pt;
+  border: 3px solid black;
+}
+
+a {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background: brown;
+  margin: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+  background: red;
+}

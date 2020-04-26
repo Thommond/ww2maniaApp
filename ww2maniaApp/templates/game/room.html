@@ -1,29 +1,32 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
 
 
-      <header>
-        <a class='action' href="{{ url_for('game.menu')}}">Exit Game</a>
-        <div>
-          <h1>{{ title }}</h1><!-- This shows so the player knows location-->
-        </div>
 
-      </header>
+<header>
+
+  <h1>{{ self.title() }}</h1>
+
+  <a class='action' href="{{ url_for('game.menu')}}">Exit Game</a>
+
+</header>
+
+
 
       <p class=desc>{{ message }}</p><!-- Describes to the player what to do next-->
-      <p class=item>{{ items }}</p>
 
-      <div class="stats">
-        <p>{{ stats }}</p>
-      </div>
 
       <form method="post" class=commands>
-        <label for="room1Reply">Answer the question soldier!</label><!--TO DO -->
-        <input name="answer" id="room" required><!--make classes for the test room to
-          return the value and move to the next room so game can play-->
-        <input type="submit" value="Anwser">
+
+        <label for="room1Reply">Answer the question soldier!</label>
+
+        <input name="answer" id="room" required>
+
+        <input type="submit" value="Answer">
+
       </form>
 
 
