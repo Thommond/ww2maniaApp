@@ -1,18 +1,6 @@
 import pytest
 
 
-# def test_index(client):
-#     response = client.get('/')
-#     assert b"Log In" in response.data
-#     assert b"Register" in response.data
-#
-#     auth.login()
-#     response = client.get('/')
-#     assert b'Log Out' in response.data
-#     assert b'test title' in response.data
-#     assert b'test\nbody'not in response.data
-#     assert b'Welcome soldier what is your name?' in response.data
-
 
 def test_menu(client):  # for base.html or the menu template
     response = client.get('/')
@@ -111,4 +99,6 @@ def test_jail_restroom(client):
     assert b'Exit Game' in response.data
     assert b'You used the restroom it was not so nice. Your cell mate was watching.' in response.data
     assert b'Only 824 days to go' in response.data
-    assert b'Answer the question soldier' in response.data
+
+    response_2 = client.post('game/jailRestroom', data = { 'answer': 'A'}, follow_redirects=True)
+    assert b'' in response_2.data

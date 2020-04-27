@@ -251,3 +251,15 @@ def army_train():
 def end():
 
     return render_template('game/room.html', title=ww2maniaApp.room.end.name, message=ww2maniaApp.room.end.message)
+
+@bp.route('/airforceBase', methods=('GET', 'POST'))
+def airforce_base():
+    if request.method == 'POST':
+        answer = request.form['answer']
+
+        if answser == 'A':
+            return redirect(url_for('game.end'))
+        else:
+            return redirect(url_for('game.airforce_base'))
+
+    return render_template('game/room.html', title=ww2maniaApp.room.airforce_base.name, message=ww2miniaApp.room.airforce_base.message)

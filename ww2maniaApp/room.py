@@ -36,7 +36,7 @@ now you deploy date is set congrats. A. To end """
 
 airforce_base = Rooms(
 'Airforce Base', """Airforce is happy to have you welcome aboard. The only thing is
-you will have to have 12 months of pilot training so Congrats. Good Luck"""
+you will have to have 12 months of pilot training so Congrats. Good Luck, A to end the game. """
 )
 
 push_up = Rooms(
