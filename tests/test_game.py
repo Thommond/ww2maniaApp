@@ -1,89 +1,141 @@
 import pytest
 
-
-
-def test_menu(client):  # for base.html or the menu template
-    response = client.get('/')
-    assert b'This is ww2mania text adventure game' in response.data
-    assert b'Please choose a menu option and proceed' in response.data
+def test_menu(client):
+    response = client.get('/game/')
+    # Getting text data from menu page
+    assert b'<h1>Ww2 Mania App</h1>' in response.data
+    assert b'<p>Please choose a menu option and proceed</p>' in response.data
     assert b'Start Game' in response.data
     assert b'How To Play' in response.data
 
 
-def how_to_play_test(client):  # for the howtoplay template
+
+def how_to_play_test(client):
     response = client.get('/game/howtoplay')
-    assert b'Here is how to play ww2mania' in response.data
+    # Getting text data from howtoplay page
+    assert b'<h2>Here is how to play ww2mania</h2>' in response.data
     assert b'Back to Menu' in response.data
     assert b'So the rules are simple.' in response.data
 
 
-def test_game1(client):  # for the welcome template
+def test_welcome(client):
+    # Checking if user can get page
+    assert client.get('/game/welcome').status_code == 200
     response = client.get('/game/welcome')
-    assert b'Exit Game' in response.data
+    #Testing if text renders on page
     assert b'Welcome' in response.data
     assert b'You are about to be deployed' in response.data
-    assert b'Answer the question soldier!' in response.data
+    # making post request
+    response = client.post('/game/welcome', data={'answer': 'A'}, follow_redirects=True)
+    # checking text data on new redirected page
+    assert b'<h1>Sgts office</h1>' in response.data
+
+    response = client.post('/game/welcome', data={'answer': 'B'}, follow_redirects=True)
+    assert b'<h1>Jail dude</h1>' in response.data
+
+    response = client.post('/game/welcome', data={'answer': 'fdslfjsd'}, follow_redirects=True)
+    assert b'Welcome' in response.data
 
 
-def test_game2(client):  # for the office template
+def test_office(client):
+    # Testing to see if user can get page
+    assert client.get('/game/office').status_code == 200
     response = client.get('/game/office')
-    assert b'Exit Game' in response.data
+    # See if text is on page
+    assert b'<h1>Sgts office</h1>' in response.data
     assert b'Welcome to the sgts office' in response.data
-    assert b'Answer the question soldier!' in response.data
 
 
-def test_game3(client):  # for the jail template
+#Checking some user input
+@pytest.mark.parametrize(('answer', 'text'),(
+('A', b'<h1>Army Recruitment</h1>'),
+('B', b'<h1>Navy Recruitment</h1>'),
+('C', b'<h1>Airforce Recruitment</h1>'),
+('nonsense', b'<h1>Sgts office</h1>')
+))
+
+def test_office_posts(client, text, answer):
+    # post request with data and see results on page
+    response = client.post('/game/office', data={'answer': answer}, follow_redirects=True)
+    assert text in response.data
+
+def test_jail_room(client):  # for the jail template
     response = client.get('/game/jail')
     assert b'This is your life now boy, this is your home.' in response.data
-    assert b'Jail dude' in response.data
-    assert b'Answer the question soldier!' in response.data
 
+# Checking some user input
+@pytest.mark.parametrize(('answer', 'text'),(
+('A', b'<h1>Jail Sleep</h1>'),
+('B', b'<h1>Jail Reading</h1>'),
+('C', b'<h1>Jail Rest Room</h1>'),
+('this is a form', b'<h1>Jail dude</h1>')
+))
 
-def test_game4(client):
+def test_jail_room_posts(client, text, answer):
+    #post request with data and see results on page
+    response = client.post('/game/jail', data={'answer': answer}, follow_redirects=True)
+    assert text in response.data
+
+def test_dead_room(client):
+    assert client.get('/game/dead').status_code == 200
     response = client.get('/game/dead')
     assert b'You have died in battle' in response.data
-    assert b'Exit Game' in response.data
-    assert b'You are with your dead brothers' in response.data
 
 
 def test_airforce_room(client):
     response = client.get('/game/airforce')
     assert b'Alright so you are flying with us' in response.data
     assert b'You will be starting trainging on piloting soon' in response.data
-    assert b'Exit Game' in response.data
-    assert b'Answer the question soldier!' in response.data
+
+# Checking some user input
+@pytest.mark.parametrize(('answer', 'text'),(
+('A', b'<h1>Airforce Base</h1>'),
+('B', b"<h1>Sgts office</h1>"),
+('what is this', b'<h1>Airforce Recruitment</h1>')
+))
+
+def test_airforce_room_posts(client, text, answer):
+    #post request with data and see results on page
+    response = client.post('/game/airforce', data={'answer': answer}, follow_redirects=True)
+    assert text in response.data
+
 
 
 def test_army_room(client):
     response = client.get('game/army')
     assert b'Wooo aaaah, welcome to the army maggot.' in response.data
-    assert b'Basic training will start soon but give me 50 push ups first'
-    assert b'Exit Game' in response.data
-    assert b'Answer the question soldier!' in response.data
+
+# Checking some user input
+@pytest.mark.parametrize(('answer', 'text'),(
+('A', b'<h1>Push Ups</h1>'),
+('B', b"<h1>Army Training</h1>"),
+('C', b'<h1>Sgts office</h1>'),
+('thifsdkfj', b'<h1>Army Recruitment</h1>')
+))
+
+def test_airforce_room_posts(client, text, answer):
+    #post request with data and see results on page
+    response = client.post('/game/army', data={'answer': answer}, follow_redirects=True)
+    assert text in response.data
 
 
 def test_navy_room(client):
     response = client.get('game/navy')
     assert b'Howdy, how you doing?' in response.data
     assert b'So you picked the navy what a fine choice' in response.data
-    assert b'So we dont really have time to train you here is you uniform see you at base' in response.data
-    assert b'Exit Game' in response.data
-    assert b'Answer the question soldier!' in response.data
+
 
 
 def test_jail_room(client):
     response = client.get('game/jail')
     assert b'Jail dude' in response.data
-    assert b'Exit Game' in response.data
-    assert b'Answer the question soldier!' in response.data
+
 
 
 def test_jail_read(client):
     response = client.get('game/jailRead')
     assert b'You read 10 pages of the Dictionary it was pleasent.' in response.data
-    assert b'Only 824 days to go' in response.data
-    assert b'Exit Game' in response.data
-    assert b'Answer the question soldier!' in response.data
+
 
 
 def test_jail_sleep(client):
@@ -99,6 +151,17 @@ def test_jail_restroom(client):
     assert b'Exit Game' in response.data
     assert b'You used the restroom it was not so nice. Your cell mate was watching.' in response.data
     assert b'Only 824 days to go' in response.data
-
     response_2 = client.post('game/jailRestroom', data = { 'answer': 'A'}, follow_redirects=True)
     assert b'' in response_2.data
+
+def test_push_up(client):
+    response = client.get('/game/pushUps')
+
+def test_navy_deploy(client):
+    response = client.get('/game/navyDeploy')
+
+def test_army_train(client):
+    response = client.get('/game/armyTrain')
+
+def test_airforce_base(client):
+    response = client.get('/game/airforceBase')

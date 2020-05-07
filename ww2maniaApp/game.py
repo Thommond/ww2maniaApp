@@ -161,6 +161,7 @@ def airforce_room():
 
             return redirect(url_for('game.office_room'))
 
+
         else:
 
             return redirect(url_for('game.airforce_room'))
@@ -175,7 +176,7 @@ def army_room():
         answer = request.form['answer']
 
         if answer == "A":
-            return redirect(url_for('game.push_ups'))
+            return redirect(url_for('game.push_up'))
         elif answer == "B":
             return redirect(url_for('game.army_train'))
         elif answer == "C":
@@ -262,4 +263,4 @@ def airforce_base():
         else:
             return redirect(url_for('game.airforce_base'))
 
-    return render_template('game/room.html', title=ww2maniaApp.room.airforce_base.name, message=ww2miniaApp.room.airforce_base.message)
+    return render_template('game/room.html', title=ww2maniaApp.room.airforce_base.name, message=ww2maniaApp.room.airforce_base.message)
