@@ -1,6 +1,6 @@
 import functools
 from flask import (
-    Blueprint, Flask, g, redirect, render_template, request, session, url_for
+    Blueprint, Flask, redirect, request, render_template, url_for
 )
 import ww2maniaApp.items
 
@@ -8,10 +8,6 @@ import ww2maniaApp.char
 
 import ww2maniaApp.room
 
-# info can be routed to the proper template page
-
-# This is a blueprint of the game function so all template that
-# relate to the game are routed here / makes code more DRY
 
 bp = Blueprint('game', __name__, url_prefix='/game')
 
@@ -210,10 +206,10 @@ def navy_deploy():
         answer = request.form['answer']
 
         if answer == 'A':
-            return redirect(url_for('game.end'))
+            return redirect(url_for('game.game_end'))
 
         elif answer == 'B':
-            return redirect(url_for('game.jail'))
+            return redirect(url_for('game.jail_room'))
 
         else:
             return redirect(url_for('game.navy_deploy'))
@@ -222,12 +218,12 @@ def navy_deploy():
 
 @bp.route('/pushUps', methods=('GET', 'POST'))
 def push_up():
-
+    """Do some push ups but then the end"""
     if request.method == 'POST':
         answer = request.form['answer']
 
         if answer == 'A':
-            return redirect(url_for('game.end'))
+            return redirect(url_for('game.game_end'))
         else:
             return redirect(url_for('game.push_up'))
 
@@ -235,32 +231,35 @@ def push_up():
 
 @bp.route('/armyTrain', methods=('GET', 'POST'))
 def army_train():
-
+    """Final army room then the end"""
     if request.method == 'POST':
         answer = request.form['answer']
 
         if answer == 'A':
-            return redirect(url_for('game.end'))
+            return redirect(url_for('game.game_end'))
         elif answer == 'B':
-            return redirect(url_for('game.jail'))
+            return redirect(url_for('game.jail_room'))
         else:
             return redirect(url_for('game.army_train'))
 
     return render_template('game/room.html', title=ww2maniaApp.room.army_train.name, message=ww2maniaApp.room.army_train.message)
 
-@bp.route('/end', methods=('GET', 'POST'))
-def end():
-
-    return render_template('game/room.html', title=ww2maniaApp.room.end.name, message=ww2maniaApp.room.end.message)
 
 @bp.route('/airforceBase', methods=('GET', 'POST'))
 def airforce_base():
+    """Airforce last room then redirected to the ending. (Only choice)"""
     if request.method == 'POST':
         answer = request.form['answer']
 
-        if answser == 'A':
-            return redirect(url_for('game.end'))
+        if answer == 'A':
+            return redirect(url_for('game.game_end'))
         else:
             return redirect(url_for('game.airforce_base'))
 
     return render_template('game/room.html', title=ww2maniaApp.room.airforce_base.name, message=ww2maniaApp.room.airforce_base.message)
+
+
+@bp.route('/game_ending', methods=('GET', 'POST'))
+def game_end():
+
+    return render_template('game/room.html', title=ww2maniaApp.room.good_game.name, message=ww2maniaApp.room.good_game.message)

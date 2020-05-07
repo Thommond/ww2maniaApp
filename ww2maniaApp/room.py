@@ -25,7 +25,7 @@ dead = Rooms('You have died in battle',
 
 airforce = Rooms('Airforce Recruitment', dedent("""Alright so you are flying with us.
 You will be starting trainging on piloting soon. We look forward to see you soon.
-A. Go to Airforce training B.Nevermind go back to sgt's office 
+A. Go to Airforce training B.Nevermind go back to sgt's office
 """))
 
 navy_deploy = Rooms(
@@ -45,14 +45,9 @@ Congrats you have finished army training. """)
 )
 
 army_train = Rooms(
-'Army Training', dedent("""We are on our way to army basic training. So now it is time to find your quarters
-for the rest of these long weeks. You will probably quit anyway. (You end up quiting and are a failer)
-Exit game."""
+'Army Training', dedent("""We are on our way to army basic training. So now it is time to find your quarters. So it turns out
+you do not have to go to the army. A. Leave and you go home B. Stay and you go to jail (you have flat feet)"""
 ))
-
-end = Rooms(
-'Ending', dedent("""Congrats you have finished the game! Press end game. """)
-)
 
 army = Rooms('Army Recruitment', dedent("""Wooo aaaah, welcome to the army maggot.
 Basic training will start soon but give me 50 push ups first.
@@ -102,3 +97,5 @@ C. Ask to go back to the war draft
 
 D. End
 """))
+
+good_game = Rooms('Congrats!', dedent("""You are a strong solider turns out you will make it home. The End!"""))
